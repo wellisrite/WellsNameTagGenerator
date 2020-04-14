@@ -1,0 +1,44 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class kokat implements ActionListener{
+	int angka;
+    JLabel angkaText;
+    public kokat(){
+    JFrame frame = new JFrame("Prototype");
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    Dimension windowSize = frame.getSize();
+
+    int windowX = Math.max(0, (screenSize.width  - windowSize.width ) / 2);
+    int windowY = Math.max(0, (screenSize.height - windowSize.height) / 2);
+
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.getContentPane().add(MyPanelCenter(), BorderLayout.CENTER);
+
+    frame.setSize(720,520);
+    frame.setLocation(windowX-720/2, windowY-520/2);
+    // frame.pack();
+    frame.setVisible(true);
+  }
+  public JPanel MyPanelCenter(){
+  	JPanel panel = new JPanel(new FlowLayout());
+  	panel.add(myleftpanel());
+  	return panel;
+  }
+  public JPanel myleftpanel(){
+  	JPanel myleftpanel = new JPanel(new FlowLayout());
+  	myleftpanel.add(Namepanel());
+  	return myleftpanel;
+  }
+  public JPanel Namepanel(){
+  	JPanel namepanel = new JPanel(new FlowLayout());
+  	JLabel name = new JLabel("Name:");
+  	JTextField namein = new JTextField(20);
+  	namepanel.add(name);
+  	namepanel.add(namein);
+  	return namepanel;
+  }
+  public void actionPerformed (ActionEvent e){
+  }
+}
